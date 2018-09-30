@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="alert alert-info text-center" role="alert" style="display: {{ message == '' ? 'none' : 'block' }}">
+            {{ message }}
+        </div>
+        <hr>
+        <div class="row" style="display: {{ message == '' ? 'block' : 'none' }}">
+            <div class="col-md-6">
+                <h3><span class="glyphicon glyphicon-info-sign"></span> MySQL Details</h3>
+                <br><hr>
+                Client version : {{ dbInfo['clientVer'] }}
+                <br><hr>
+                Server version : {{ dbInfo['serverVer'] }}
+                <br><hr>
+                Connection type : {{ dbInfo['connStatus'] }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

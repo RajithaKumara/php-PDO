@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container" style="padding: 24px">
+        <div class="alert alert-info text-center" role="alert" style="display: {{ message == '' ? 'none' : 'block' }}">
+            {{ message }}
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>TCP/IP</h3>
+                <form action="{{ baseUrl }}/{{ port }}" method="post">
+                    <input class="form-control" type="text" name="username" placeholder="Username"
+                           value="{{ dbInfo['username'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="password" placeholder="Password"
+                           value="{{ dbInfo['password'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="database" placeholder="Database"
+                           value="{{ dbInfo['database'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="host" placeholder="Host"
+                           value="{{ dbInfo['host'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="port" placeholder="Port"
+                           value="{{ dbInfo['port'] }}">
+                    <br><br>
+                    <input class="btn btn-default" type="submit" value="Submit">
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h3>UNIX Socket</h3>
+                <form action="{{ baseUrl }}/{{ socket }}" method="post">
+                    <input class="form-control" type="text" name="username" placeholder="Username"
+                           value="{{ dbInfo['username'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="password" placeholder="Password"
+                           value="{{ dbInfo['password'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="database" placeholder="Database"
+                           value="{{ dbInfo['database'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="host" placeholder="Host"
+                           value="{{ dbInfo['host'] }}">
+                    <br>
+                    <input class="form-control" type="text" name="socket" placeholder="Socket"
+                           value="{{ dbInfo['socket'] }}">
+                    <br><br>
+                    <input class="btn btn-default" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
